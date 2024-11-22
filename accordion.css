@@ -1,0 +1,78 @@
+/* Container */
+.container {
+  width: 80%;
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+/* Accordion container with focus-within */
+.accordion-container:focus-within {
+  border-color: hsl(216deg 94% 43%); /* Border color change when focused */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow to show focus */
+  z-index: 99;
+}
+
+/* Accordion Button */
+button.accordion {
+  width: 100%;
+  background-color: whitesmoke;
+  border: none;
+  text-align: left;
+  padding: 15px 20px;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  position: relative; /* For positioning the icon */
+  transition: background-color 0.2s linear, box-shadow 0.2s linear;
+}
+
+/* Custom Arrow Icon */
+.accordion-icon {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid #333; /* Downward arrow */
+  position: absolute;
+  right: 2em;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* When the accordion is expanded, change icon to an upward arrow */
+button.accordion[aria-expanded="true"] .accordion-icon {
+  border-top: none; /* Remove downward arrow */
+  border-bottom: 10px solid #333; /* Upward arrow */
+}
+
+
+/* Hover and Focus styles for buttons */
+button.accordion:hover,
+button.accordion:focus {
+  background-color: #ddd;
+  outline: none;
+  box-shadow: 0 0 3px 2px rgba(0, 123, 255, 0.5); /* Focus ring */
+  z-index: 99;
+}
+
+/* Accordion Content */
+.accordion-content {
+  background-color: white;
+  border: 1px solid whitesmoke;
+  padding: 0 20px;
+  overflow: hidden;
+  max-height: 0; /* Initially hidden */
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* When content is hidden */
+.accordion-content[hidden] {
+  display: none;
+}
+
+/* Focus styles for the accordion content */
+.accordion-content:focus {
+  outline: none;
+}
